@@ -1,22 +1,10 @@
 #!/bin/bash 
-#wget http://wordpress.org/latest.tar.gz 
-#tar -xzf latest.tar.gz
-#mv wordpress/* .
-#rm -rf wordpress/ latest.tar.gz wp-content/themes/twenty* wp-content/plugins/akismet wp-content/plugins/hello.php readme.html
-#git clone https://github.com/jackcutting/wp-base-theme.git wp-content/themes/themename
-#subl .
-
-# echo -n "Enter the theme name:"
-# read THEMENAME
-# echo $THEMENAME
 
 THEMENAME=''
 THEMENAMENS=''
 AUTHOR=''
 AUTHORURI=''
 VERSION=''
-
-# OS=$(uname)
 
 get_theme_name() {
 
@@ -96,10 +84,8 @@ sed -i.bak s/"define('WP_DEBUG', false);"/"define('WP_DEBUG', false);"\
 \
 "define('WP_DEFAULT_THEME', '$THEMENAMENS');"/ wp-config-sample.php
 
-# if [ $OS == 'Darwin' ]; then
-# 	open https://wordpress.org/
-# fi
-
 echo '========================================================'
 echo 'Wordpress installed with theme: '$THEMENAME'!'
 echo '========================================================'
+
+subl .
