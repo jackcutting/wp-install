@@ -79,6 +79,9 @@ sed -i.bak s/"Author: Jack Cutting"/"Author: $AUTHOR"/ wp-content/themes/$THEMEN
 sed -i.bak s/"Author URI: http:\/\/www.example.co.uk\/"/"Author URI: $AUTHORURI"/ wp-content/themes/$THEMENAMENS/style.scss
 sed -i.bak s/"Version: 1.0"/"Version: $VERSION"/ wp-content/themes/$THEMENAMENS/style.scss
 
+# get a basic screenshot for theme
+curl "http://placehold.it/880x660.png&text=${TEMP_THEMENAME//+/}" -o "wp-content/themes/$THEMENAMENS/screenshot.png"
+
 # ensure new theme is default when installed
 sed -i.bak s/"define('WP_DEBUG', false);"/"define('WP_DEBUG', false);"\
 \
