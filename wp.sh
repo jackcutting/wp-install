@@ -72,7 +72,12 @@ mv wordpress/* .
 # remove not-needed and unsecure files
 rm -rf wordpress/ latest.tar.gz readme.html wp-content/themes/twenty* wp-content/plugins/akismet wp-content/plugins/hello.php
 
+# clone common plugins
+git clone https://github.com/mtekk/Breadcrumb-NavXT.git wp-content/plugins/Breadcrumb-NavXT
+git clone https://github.com/crowdfavorite-mirrors/wp-contact-form-7.git wp-content/plugins/contact-form-7
+
 # clone base theme and add in theme variables
+# NEEDS UPDATING TO USE tr INSTEAD OF sed
 git clone https://github.com/jackcutting/wp-base-theme.git wp-content/themes/$THEMENAMENS
 sed -i.bak s/"Theme Name: Theme Name"/"Theme Name: $THEMENAME"/ wp-content/themes/$THEMENAMENS/style.scss
 sed -i.bak s/"Author: Jack Cutting"/"Author: $AUTHOR"/ wp-content/themes/$THEMENAMENS/style.scss
@@ -83,6 +88,7 @@ sed -i.bak s/"Version: 1.0"/"Version: $VERSION"/ wp-content/themes/$THEMENAMENS/
 curl "http://placehold.it/880x660.png&text=${TEMP_THEMENAME//+/}" -o "wp-content/themes/$THEMENAMENS/screenshot.png"
 
 # ensure new theme is default when installed
+# NEEDS UPDATING TO USE tr INSTEAD OF sed
 sed -i.bak s/"define('WP_DEBUG', false);"/"define('WP_DEBUG', false);"\
 \
 "define('WP_DEFAULT_THEME', '$THEMENAMENS');"/ wp-config-sample.php
