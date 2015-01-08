@@ -75,6 +75,7 @@ rm -rf wordpress/ latest.tar.gz readme.html wp-content/themes/twenty* wp-content
 # clone common plugins
 git clone https://github.com/mtekk/Breadcrumb-NavXT.git wp-content/plugins/Breadcrumb-NavXT
 git clone https://github.com/crowdfavorite-mirrors/wp-contact-form-7.git wp-content/plugins/contact-form-7
+git clone https://github.com/breiti/ajax-thumbnail-rebuild.git wp-content/plugins/ajax-thumbnail-rebuild
 
 # clone base theme and add in theme variables
 # NEEDS UPDATING TO USE tr INSTEAD OF sed
